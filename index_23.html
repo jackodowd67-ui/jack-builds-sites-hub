@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Jack — Websites & AI Assistants for Local Businesses | Livonia & Farmington Hills, MI</title>
+<meta name="description" content="Custom single-page websites with built-in AI chat assistants for local businesses in Livonia and Farmington Hills. See a live demo before you pay. Flat pricing, $200.">
+
+<!-- Open Graph — controls the preview card shown when this link is shared in DMs/social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jack — Websites & AI Assistants for Local Businesses">
+<meta property="og:description" content="See a live demo before you pay a dollar. Custom sites for local businesses in Livonia & Farmington Hills — flat $200, pay on delivery.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80&auto=format&fit=crop">
+<meta property="og:url" content="https://jack-builds-sites-hub.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jack — Websites & AI Assistants for Local Businesses">
+<meta name="twitter:description" content="See a live demo before you pay a dollar. Custom sites for local businesses in Livonia & Farmington Hills — flat $200, pay on delivery.">
+
+<!-- Portfolio hub — all contact links live. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Archivo:wght@800&family=Unbounded:wght@600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    color-scheme: light;
+    --ink:        #12141D;
+    --ink-soft:   #4A4F5E;
+    --paper:      #F5F6F8;
+    --card:       #FFFFFF;
+    --line:       #E1E4EA;
+    --accent:     #2E46E6;   /* ultramarine */
+    --accent-ink: #1E2FA6;
+
+    /* per-demo brand tokens */
+    --sana-bg:    #2C1B12;
+    --sana-warm:  #C89B5A;
+    --sana-cream: #F3E7D3;
+
+    --green-bg:   #16371F;
+    --green-leaf: #8FCB6B;
+    --green-mist: #EAF4E4;
+
+    --bloom-bg:   #FBEFF2;
+    --bloom-pink: #E86A8A;
+    --bloom-gold: #C9A24B;
+    --bloom-ink:  #4A2231;
+
+    --font-display: "Bricolage Grotesque", sans-serif;
+    --font-body:    "Instrument Sans", sans-serif;
+    --font-mono:    "Spline Sans Mono", monospace;
+    --radius: 14px;
+    --max: 1080px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--font-body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  :focus-visible{ outline:3px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,246,248,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; max-width:var(--max); margin:0 auto;
+  }
+  .nav-brand{
+    font-family:var(--font-display); font-weight:800; font-size:1.05rem;
+    text-decoration:none; letter-spacing:-.01em;
+  }
+  .nav-brand span{ color:var(--accent); }
+  .nav-links{ display:flex; gap:22px; align-items:center; }
+  .nav-links a{
+    text-decoration:none; font-size:.92rem; font-weight:500; color:var(--ink-soft);
+  }
+  .nav-links a:hover{ color:var(--ink); }
+  .nav-cta{
+    background:var(--ink); color:#fff !important;
+    padding:9px 18px; border-radius:99px; font-weight:600 !important;
+    transition:background .18s ease;
+  }
+  .nav-cta:hover{ background:var(--accent); }
+  @media(max-width:680px){ .nav-links a:not(.nav-cta){ display:none; } }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:88px 0 72px; }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:.8rem; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--accent-ink);
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{
+    content:""; width:22px; height:2px; background:var(--accent); display:inline-block;
+  }
+  .hero h1{
+    font-family:var(--font-display); font-weight:800;
+    font-size:clamp(2.3rem, 5.4vw, 3.9rem);
+    line-height:1.06; letter-spacing:-.025em;
+    margin:18px 0 20px; max-width:15ch;
+  }
+  .hero h1 em{
+    font-style:normal; color:var(--accent);
+  }
+  .hero p{
+    font-size:1.13rem; color:var(--ink-soft); max-width:56ch; margin-bottom:32px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block; text-decoration:none; font-weight:600; font-size:.98rem;
+    padding:13px 26px; border-radius:99px; transition:transform .15s ease, background .18s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--accent); color:#fff; }
+  .btn-primary:hover{ background:var(--accent-ink); }
+  .btn-ghost{ border:1.5px solid var(--ink); color:var(--ink); }
+  .btn-ghost:hover{ background:var(--ink); color:#fff; }
+
+  .hero-proof{
+    margin-top:44px; display:flex; gap:10px; align-items:center;
+    font-family:var(--font-mono); font-size:.82rem; color:var(--ink-soft);
+  }
+  .proof-dots{ display:flex; }
+  .proof-dots i{
+    width:14px; height:14px; border-radius:50%; border:2px solid var(--paper);
+    display:inline-block; margin-left:-4px;
+  }
+  .proof-dots i:nth-child(1){ background:var(--sana-warm); margin-left:0; }
+  .proof-dots i:nth-child(2){ background:var(--green-leaf); }
+  .proof-dots i:nth-child(3){ background:var(--bloom-pink); }
+
+  /* load-in sequence */
+  .rise{ opacity:0; transform:translateY(14px); animation:rise .6s ease forwards; }
+  .rise.d1{ animation-delay:.08s } .rise.d2{ animation-delay:.18s }
+  .rise.d3{ animation-delay:.28s } .rise.d4{ animation-delay:.4s }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+
+  /* ---------- sections ---------- */
+  section{ padding:72px 0; }
+  .sec-head{ margin-bottom:40px; max-width:60ch; }
+  .sec-head h2{
+    font-family:var(--font-display); font-weight:800;
+    font-size:clamp(1.6rem, 3.2vw, 2.3rem); letter-spacing:-.02em;
+    margin:12px 0 10px;
+  }
+  .sec-head p{ color:var(--ink-soft); font-size:1.03rem; }
+
+  /* ---------- work: brand-plate cards ---------- */
+  #work{ padding-top:40px; }
+  .cards{ display:grid; gap:26px; }
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; display:grid; grid-template-columns:1.05fr 1fr;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 14px 34px rgba(18,20,29,.09); }
+  @media(max-width:760px){ .card{ grid-template-columns:1fr; } }
+
+  .plate{
+    padding:44px 34px; display:flex; flex-direction:column; justify-content:center;
+    min-height:250px; position:relative;
+  }
+  .plate .url{
+    font-family:var(--font-mono); font-size:.72rem; opacity:.72;
+    position:absolute; top:16px; left:34px; letter-spacing:.02em;
+  }
+  .plate h3{ line-height:1.1; letter-spacing:-.01em; }
+  .plate .tag{ margin-top:10px; font-size:.95rem; opacity:.86; max-width:30ch; }
+
+  .card-sana .plate{ background:var(--sana-bg); color:var(--sana-cream); }
+  .card-sana h3{ font-family:"Fraunces", serif; font-weight:700; font-size:2.1rem; }
+  .card-sana .tag{ color:var(--sana-warm); }
+
+  .card-green .plate{ background:var(--green-bg); color:var(--green-mist); }
+  .card-green h3{ font-family:"Archivo", sans-serif; font-weight:800; font-size:2rem; text-transform:uppercase; letter-spacing:.01em; }
+  .card-green .tag{ color:var(--green-leaf); }
+
+  .card-bloom .plate{ background:var(--bloom-bg); color:var(--bloom-ink); }
+  .card-bloom h3{ font-family:"Unbounded", sans-serif; font-weight:600; font-size:1.7rem; }
+  .card-bloom .tag{ color:var(--bloom-pink); }
+
+  .card-info{ padding:34px; display:flex; flex-direction:column; gap:16px; }
+  .card-kind{
+    font-family:var(--font-mono); font-size:.76rem; text-transform:uppercase;
+    letter-spacing:.08em; color:var(--ink-soft);
+    display:flex; align-items:center; gap:10px;
+  }
+  .swatches{ display:flex; gap:4px; }
+  .swatches i{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.08); }
+  .card-info p{ color:var(--ink-soft); font-size:.97rem; }
+  .feat{ display:flex; flex-wrap:wrap; gap:8px; }
+  .feat span{
+    font-size:.8rem; font-weight:500; padding:5px 12px; border-radius:99px;
+    background:var(--paper); border:1px solid var(--line); color:var(--ink-soft);
+  }
+  .card-links{ margin-top:auto; display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .visit{
+    text-decoration:none; font-weight:600; font-size:.95rem; color:var(--accent-ink);
+  }
+  .visit::after{ content:" →"; transition:margin .15s ease; }
+  .visit:hover::after{ margin-left:4px; }
+
+  /* ---------- how it works ---------- */
+  #how{ background:var(--ink); color:#fff; }
+  #how .eyebrow{ color:#9FB0FF; } #how .eyebrow::before{ background:#9FB0FF; }
+  #how .sec-head p{ color:#B9BDCB; }
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media(max-width:760px){ .steps{ grid-template-columns:1fr; } }
+  .step{
+    border:1px solid rgba(255,255,255,.14); border-radius:var(--radius);
+    padding:28px 24px;
+  }
+  .step b{
+    font-family:var(--font-mono); font-weight:500; font-size:.8rem; color:#9FB0FF;
+    display:block; margin-bottom:14px; letter-spacing:.08em;
+  }
+  .step h3{ font-family:var(--font-display); font-weight:600; font-size:1.2rem; margin-bottom:8px; }
+  .step p{ color:#B9BDCB; font-size:.95rem; }
+
+  /* ---------- pricing ---------- */
+  .price-grid{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media(max-width:760px){ .price-grid{ grid-template-columns:1fr; } }
+  .price{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:34px;
+  }
+  .price.hi{ border:2px solid var(--accent); }
+  .price h3{ font-family:var(--font-display); font-weight:600; font-size:1.25rem; }
+  .price .amount{
+    font-family:var(--font-display); font-weight:800; font-size:2.3rem;
+    letter-spacing:-.02em; margin:10px 0 2px;
+  }
+  .price .per{ font-family:var(--font-mono); font-size:.8rem; color:var(--ink-soft); }
+  .price ul{ list-style:none; margin-top:20px; display:grid; gap:10px; }
+  .price li{
+    padding-left:26px; position:relative; color:var(--ink-soft); font-size:.96rem;
+  }
+  .price li::before{
+    content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:700;
+  }
+  .honest{
+    margin-top:26px; padding:18px 22px; border-left:3px solid var(--accent);
+    background:var(--card); border-radius:0 10px 10px 0;
+    color:var(--ink-soft); font-size:.97rem; max-width:70ch;
+  }
+  .honest b{ color:var(--ink); }
+
+  /* ---------- about ---------- */
+  #about .wrap{ max-width:760px; }
+  #about p{ font-size:1.08rem; color:var(--ink-soft); margin-top:14px; }
+  #about p b{ color:var(--ink); }
+
+  /* ---------- contact ---------- */
+  #contact{ background:var(--ink); color:#fff; text-align:center; }
+  #contact h2{
+    font-family:var(--font-display); font-weight:800;
+    font-size:clamp(1.8rem,3.6vw,2.6rem); letter-spacing:-.02em; margin-bottom:12px;
+  }
+  #contact .sub{ color:#B9BDCB; max-width:48ch; margin:0 auto 34px; }
+  .contact-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .contact-row .btn{ border:1.5px solid rgba(255,255,255,.3); color:#fff; }
+  .contact-row .btn:hover{ background:#fff; color:var(--ink); }
+  .contact-row .btn.main{ background:var(--accent); border-color:var(--accent); }
+  .contact-row .btn.main:hover{ background:#fff; color:var(--accent-ink); }
+
+  footer{
+    padding:26px 24px; text-align:center;
+    font-family:var(--font-mono); font-size:.78rem; color:var(--ink-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    html{ scroll-behavior:auto; }
+    .rise{ opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="nav-brand" href="#top">jack<span>.</span>builds</a>
+    <div class="nav-links">
+      <a href="#work">Live demos</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a class="nav-cta" href="#contact">Get a free demo</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero wrap">
+    <span class="eyebrow rise">Livonia · Farmington Hills · Metro Detroit</span>
+    <h1 class="rise d1">See your website <em>working</em> before you spend a dollar.</h1>
+    <p class="rise d2">
+      I build custom one-page websites with built-in AI chat assistants for local
+      businesses. You get a live, working demo first — open it on your phone, click
+      around, talk to the AI. If you like it, it's yours for a flat $200,
+      paid on delivery.
+    </p>
+    <div class="hero-actions rise d3">
+      <a class="btn btn-primary" href="#work">Open the live demos</a>
+      <a class="btn btn-ghost" href="#how">How it works</a>
+    </div>
+    <div class="hero-proof rise d4">
+      <span class="proof-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>3 live demo sites below — each with its own design, built from scratch</span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Live demos</span>
+        <h2>No two of these look alike. Neither will yours.</h2>
+        <p>Every site is designed around the business — its colors, its voice, its customers. These are fully working sites: real booking forms, real AI assistants, hosted and live right now.</p>
+      </div>
+
+      <div class="cards">
+
+        <!-- Sana Coffee House -->
+        <article class="card card-sana">
+          <div class="plate">
+            <span class="url">sana-coffee-demo.vercel.app</span>
+            <h3>Sana Coffee House</h3>
+            <p class="tag">Yemeni coffee heritage, cardamom-spiced brews, modern specialty drinks.</p>
+          </div>
+          <div class="card-info">
+            <span class="card-kind">
+              Coffee shop
+              <span class="swatches" aria-hidden="true">
+                <i style="background:#2C1B12"></i><i style="background:#C89B5A"></i><i style="background:#F3E7D3"></i>
+              </span>
+            </span>
+            <p>Full menu with 30+ drinks and pastries, fan-favorites section, hours, and an AI assistant ("Ask Sana") that answers questions about the menu and ordering ahead.</p>
+            <div class="feat">
+              <span>AI chat assistant</span><span>Full menu</span><span>Order-ahead CTA</span><span>Mobile-first</span>
+            </div>
+            <div class="card-links">
+              <a class="visit" href="https://sana-coffee-demo.vercel.app/" target="_blank" rel="noopener">Visit the live site</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Greenfield Grounds -->
+        <article class="card card-green">
+          <div class="plate">
+            <span class="url">greenfield-grounds-demo.vercel.app</span>
+            <h3>Greenfield Grounds</h3>
+            <p class="tag">Lawn care, landscaping, and seasonal cleanup — handled right the first time.</p>
+          </div>
+          <div class="card-info">
+            <span class="card-kind">
+              Landscaping
+              <span class="swatches" aria-hidden="true">
+                <i style="background:#16371F"></i><i style="background:#8FCB6B"></i><i style="background:#EAF4E4"></i>
+              </span>
+            </span>
+            <p>Six-service lineup, a season-by-season care guide, project gallery, and a quote-request form that sends leads straight to the owner's inbox — plus an AI assistant for pricing and service questions.</p>
+            <div class="feat">
+              <span>AI chat assistant</span><span>Quote request form</span><span>Seasonal guide</span><span>Service menu</span>
+            </div>
+            <div class="card-links">
+              <a class="visit" href="https://greenfield-grounds-demo.vercel.app/" target="_blank" rel="noopener">Visit the live site</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bloom House Studio -->
+        <article class="card card-bloom">
+          <div class="plate">
+            <span class="url">bloom-house-studio.vercel.app</span>
+            <h3>Bloom House Studio</h3>
+            <p class="tag">Hair, nails & facials — a booking experience as polished as the salon.</p>
+          </div>
+          <div class="card-info">
+            <span class="card-kind">
+              Salon & spa
+              <span class="swatches" aria-hidden="true">
+                <i style="background:#FBEFF2"></i><i style="background:#E86A8A"></i><i style="background:#C9A24B"></i>
+              </span>
+            </span>
+            <p>Interactive service picker with a live running total that feeds one booking request, a tagged photo gallery, and an animated hero — built to make booking feel effortless.</p>
+            <div class="feat">
+              <span>Service picker + live total</span><span>Booking form</span><span>Tagged gallery</span><span>Custom animation</span>
+            </div>
+            <div class="card-links">
+              <a class="visit" href="https://bloom-house-studio.vercel.app/" target="_blank" rel="noopener">Visit the live site</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How it works</span>
+        <h2>You risk nothing. That's the whole point.</h2>
+        <p>Most web designers ask for a deposit before you've seen anything. I do it backwards.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <b>STEP 1</b>
+          <h3>I build your demo — free</h3>
+          <p>A working version of your site, with your business's name, services, and style. Not a mockup — a real site you can open in your browser.</p>
+        </div>
+        <div class="step">
+          <b>STEP 2</b>
+          <h3>You try it live</h3>
+          <p>Open it on your phone. Click the booking form. Ask the AI assistant a question your customers actually ask. Tell me what you'd change.</p>
+        </div>
+        <div class="step">
+          <b>STEP 3</b>
+          <h3>Like it? It's yours</h3>
+          <p>I finish it with your real photos, info, and forms, put it live, and you pay a flat $200 — only after it's done and you've seen it working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Pricing</span>
+        <h2>Flat, honest, on paper.</h2>
+        <p>No hourly rates, no surprise invoices, no deposits.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price hi">
+          <h3>Custom website</h3>
+          <div class="amount">$200</div>
+          <span class="per">flat · one-time · pay on delivery</span>
+          <ul>
+            <li>Custom design — built around your business, not a template</li>
+            <li>Works great on phones (where most of your customers are)</li>
+            <li>Contact or booking form that emails you directly</li>
+            <li>Hosting set up for you — no monthly hosting bill</li>
+            <li>You pay only when it's live and you've approved it</li>
+          </ul>
+        </div>
+        <div class="price">
+          <h3>AI chat assistant <small style="font-weight:400;color:var(--ink-soft)">— optional add-on</small></h3>
+          <div class="amount">$20</div>
+          <span class="per">per month · cancel anytime</span>
+          <ul>
+            <li>Answers customer questions 24/7 — hours, prices, services</li>
+            <li>Trained on <em>your</em> business: your menu, your policies</li>
+            <li>Points visitors to your booking form or phone number</li>
+            <li>Try it right now on any of the three demos above</li>
+          </ul>
+        </div>
+      </div>
+      <p class="honest"><b>Why so affordable?</b> No agency, no office, no overhead — just careful work at a price a small business can actually say yes to. Intro pricing while I build my local portfolio.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <span class="eyebrow">About</span>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3.2vw,2.3rem);letter-spacing:-.02em;margin-top:12px;">Hi, I'm Jack.</h2>
+      <p>
+        I'm a Michigan State student from the Livonia / Farmington Hills area, and I build
+        websites and AI tools for local businesses — partly to build my portfolio, and partly
+        to help out with my family's finances. <b>That's the honest version.</b>
+      </p>
+      <p>
+        What you get out of that: someone local who picks up the phone, does the work himself,
+        and cares a lot about every site in this portfolio — because each one is also his pitch
+        to the next business down the street.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Want a free demo of your site?</h2>
+      <p class="sub">Send me your business name and what you do. I'll build a working demo and send you the link — no commitment, no deposit.</p>
+      <div class="contact-row">
+        <!-- EDIT: replace the placeholders below with your real handles -->
+        <a class="btn main" href="https://instagram.com/jack_builds_sites" target="_blank" rel="noopener">DM me on Instagram</a>
+        <a class="btn" href="https://www.facebook.com/jackbuildssites" target="_blank" rel="noopener">Message on Facebook</a>
+        <a class="btn" href="mailto:jackodowd67@gmail.com">Email me</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  jack.builds · Livonia & Farmington Hills, MI · demo businesses are fictional — every site is real and live
+</footer>
+
+</body>
+</html>
